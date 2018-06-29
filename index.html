@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br" id="ng-app" ng-app="app" ng-controller="Main">
+  <head>
+    <meta charset="utf-8">
+    <title>AngularJS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Dependências de terceiros -->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    <!-- App: Folhas de estilo -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="page-header">
+        <h1>
+          AngularJS
+          <small>é tipo programar, só que no HTML</small>
+          <a class="btn btn-info btn-sm" ng-click="go('/')" ng-class="{active: menu === '/'}">
+            <span class="glyphicon glyphicon-home"></span>
+            Home
+          </a>
+          <a class="btn btn-info btn-sm" ng-click="go('/help')" ng-class="{active: menu === '/help'}">
+            <span class="glyphicon glyphicon-question-sign"></span>
+            Ajuda
+          </a>
+        </h1>
+      </div>
+      <div ng-view class="row"></div>
+    </div>
+
+    <!-- Dependências de terceiros --> 
+    <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/lib/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/lib/angular-md5/angular-md5.min.js"></script>
+
+    <!-- Angular :: core -->
+    <script type="text/javascript" src="/assets/js/app.js"></script>
+    <script type="text/javascript" src="/assets/js/constants.js"></script>
+
+    <!-- Angular :: controllers -->
+    <script type="text/javascript" src="/assets/js/controllers/main.js"></script>
+    <script type="text/javascript" src="/assets/js/controllers/index.js"></script>
+    <script type="text/javascript" src="/assets/js/controllers/help.js"></script>
+
+    <!-- Angular :: services -->
+    <script type="text/javascript" src="/assets/js/services/gravatar.js"></script>
+    
+    <!-- Angular :: factories -->
+    <!-- Angular :: filters -->
+    <!-- Angular :: directives -->
+  </body>
+</html>

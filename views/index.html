@@ -1,0 +1,50 @@
+<div class="col-md-12">
+  <form name="gravatar" ng-submit="getGravatarProfile()">
+    <div class="form-group" ng-class="{'has-error': gravatar.email.$dirty && gravatar.email.$invalid, 'has-success': gravatar.email.$dirty && gravatar.email.$valid}">
+      <input type="email" class="form-control" name="email" id="emailGravatar" ng-model="emailGravatar" placeholder="Email" required>
+      <div ng-if="gravatar.email.$dirty && gravatar.email.$invalid">
+        <p class="help-block" ng-if="gravatar.email.$error.required">Email obrigatório</p>
+        <p class="help-block" ng-if="gravatar.email.$error.email">Email inválido</p>
+      </div>
+    </div>
+    <button ng-disabled="gravatar.$invalid" type="submit" class="btn btn-success form-control">Obter dados do perfil</button>
+  </form>
+</div>
+
+<div class="col-md-12" ng-show="gravatarResult">
+  <hr>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Dados:</h3>
+    </div>
+    <div class="panel-body">
+      <dl>
+        <dt>Gravatar</dt>
+        <dd>
+          <img src="https://pt.gravatar.com/avatar/{{emailGravatar | gravatar}}" alt="emailGravatar" class="img-rounded">
+        </dd>
+      </dl>
+      <dl>
+        <dt>ID</dt>
+        <dd>{{gravatarResult.entry[0].id}}</dd>
+      </dl>
+      <dl>
+        <dt>Nome</dt>
+        <dd>{{gravatarResult.entry[0].name.formatted}}</dd>
+      </dl>
+      <dl>
+        <dt>URL</dt>
+        <dd>{{gravatarResult.entry[0].profileUrl}}</dd>
+      </dl>
+      <dl>
+        <dt>Sobre</dt>
+        <dd>{{gravatarResult.entry[0].aboutMe}}</dd>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12" ng-if="gravatarResult">
+  <h3>Retorno completo:</h3>
+  <pre>{{gravatarResult | json}}</pre>
+</div>
